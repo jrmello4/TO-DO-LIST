@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if object %}Editar Tarefa{% else %}Adicionar Tarefa{% endif %}{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>{% if object %}Editar Tarefa{% else %}Adicionar Tarefa{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">{% if object %}Atualizar{% else %}Criar{% endif %}</button>
+    </form>
+</div>
+{% endblock %}

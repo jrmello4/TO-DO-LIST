@@ -3,12 +3,14 @@
 {% block title %}Todo Lists{% endblock %}
 
 {% block content %}
+<div class="todo-lists-container">
     <h2>All Todo Lists</h2>
-    <ul>
+    <ul class="todo-lists">
         {% for list in object_list %}
-            <li>
+            <li class="todo-list-item">
                 <a href="{% url 'list' list.id %}">{{ list.title }}</a>
             </li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}

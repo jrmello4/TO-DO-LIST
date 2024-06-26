@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ todo_list.name }}{% endblock %}
+{% block title %}{{ todo_list.title }}{% endblock %}
 
 {% block content %}
-    <h2>{{ todo_list.name }}</h2>
+<div class="list-task">
+    <h2>{{ todo_list.title }}</h2>
+    <a href="{% url 'task-create' list_id=todo_list.id %}" class="button">Add Task</a>
     <ul>
         {% for task in task_list %}
-            <li>{{ task.title }}</li>
+            <li class="task-item">
+                <p><strong>Nome: </strong>{{ task.title }}</p>
+                <p><strong>Descrição: </strong>{{ task.description }}</p>
+                <p><strong>Completado? </strong>{{ task.completed }}</p>
+                <p><strong>Criado em: </strong>{{ task.created_at }}</p>
+                <a href="{% url 'task-update' list_id=todo_list.id pk=task.id %}" class="edit-link">Edit</a>
+            </li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
