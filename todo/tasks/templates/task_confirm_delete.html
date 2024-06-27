@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+  <h1>Confirmar exclusão</h1>
+  <p>Tem certeza de que deseja excluir a tarefa "{{ object.title }}"?</p>
+  <form method="post">{% csrf_token %}
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'list' object.todo_list.id %}" class="cancelar-item">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

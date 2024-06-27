@@ -1,9 +1,13 @@
 from django.urls import path
-from . import views
+from django.contrib.auth import views as auth_views
+from .views import TodoView, ItemListView, CreateTask, UpdateTask, DeleteTask
 
 urlpatterns = [
-    path("", views.TodoView.as_view(), name="index"),
-    path("list/<int:list_id>/", views.ItemListView.as_view(), name="list"),
-    path("list/<int:list_id>/create/", views.CreateTask.as_view(), name="task-create"),
-    path("list/<int:list_id>/update/<int:pk>/", views.UpdateTask.as_view(), name="task-update"),
+    path('', TodoView.as_view(), name='index'),
+    path('list/<int:list_id>/', ItemListView.as_view(), name='list'),
+    path('task/create/<int:list_id>/', CreateTask.as_view(), name='task_create'),
+    path('task/update/<int:pk>/', UpdateTask.as_view(), name='task_update'),
+    path('task/delete/<int:pk>/', DeleteTask.as_view(), name='task_delete'),
+    path('task/login/', auth_views.LoginView.as_view(), name='login'),
+    path('task/logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]

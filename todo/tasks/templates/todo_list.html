@@ -5,15 +5,20 @@
 {% block content %}
 <div class="list-task">
     <h2>{{ todo_list.title }}</h2>
-    <a href="{% url 'task-create' list_id=todo_list.id %}" class="button">Add Task</a>
+    <a href="{% url 'task_create' list_id=todo_list.id %}" class="button">Add Task</a>
     <ul>
         {% for task in task_list %}
             <li class="task-item">
                 <p><strong>Nome: </strong>{{ task.title }}</p>
                 <p><strong>Descrição: </strong>{{ task.description }}</p>
-                <p><strong>Completado? </strong>{{ task.completed }}</p>
+                {% if task.completed %}
+                    <p><strong>Completado? </strong><input type="checkbox" name="task-complete" checked></p>
+                {% else %}
+                    <p><strong>Completado? </strong><input type="checkbox" name="task-complete"></p>
+                {% endif %}
                 <p><strong>Criado em: </strong>{{ task.created_at }}</p>
-                <a href="{% url 'task-update' list_id=todo_list.id pk=task.id %}" class="edit-link">Edit</a>
+                <a href="{% url 'task_update' pk=task.id %}" class="edit-link">Edit</a>
+                <a href="{% url 'task_delete' pk=task.id %}" class="delete-link">Delete</a>
             </li>
         {% endfor %}
     </ul>

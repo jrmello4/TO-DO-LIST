@@ -179,6 +179,36 @@ footer {
     background-color: #0056b3;
 }
 
+.delete-link {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #d10000;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-link:hover {
+    background-color: #b80000; /* cor de fundo ligeiramente mais escura para hover */
+}
+
+.cancelar-item{
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #9c0000;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cancelar-item:hover{
+    background-color: #8a0303;
+}
+
 /* Estilo para links de edição */
 .edit-link {
     display: inline-block;
