@@ -1,8 +1,11 @@
 from django.urls import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Task, TodoList
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
 
 class TodoView(LoginRequiredMixin, ListView):
     model = TodoList
@@ -49,3 +52,28 @@ class DeleteTask(LoginRequiredMixin, DeleteView):
     
     def get_success_url(self):
         return reverse_lazy('list', kwargs={'list_id': self.object.todo_list.id})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('index')
+    else:
+        return redirect('index')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redireciona para a página de login após o registro bem-sucedido
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+def guest_login(request):
+    guest_user = authenticate(username='guest', password='guestpassword')
+    if guest_user is not None:
+        login(request, guest_user)
+        return redirect('index')
+    else:
+        return HttpResponse('Erro ao fazer login como convidado', status=401)

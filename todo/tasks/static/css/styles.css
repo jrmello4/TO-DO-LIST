@@ -273,3 +273,114 @@ footer {
 .form-container form button:hover {
     background-color: #0056b3;
 }
+
+.btn-login,
+.btn-logout,
+.btn-register, 
+.btn-guest {
+    background-color: #2490bb; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remover borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-decoration: none; /* Remover sublinhado (para o link de login) */
+    font-size: 16px; /* Tamanho da fonte */
+    margin-right: 15px; /* Espaçamento à direita */
+}
+
+.btn-login:hover,
+.btn-logout:hover,
+.btn-register:hover,
+.btn-guest:hover {
+    background-color: #2490bb; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+/* styles.css */
+
+.login-container {
+    max-width: 400px; /* Largura máxima da div */
+    margin: 50px auto; /* Centraliza a div horizontalmente e adiciona margem superior/inferior */
+    padding: 20px; /* Espaçamento interno */
+    background: #f4f4f4; /* Cor de fundo da div */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar um efeito de elevação */
+}
+
+.login-container h2 {
+    text-align: center; /* Centraliza o texto do título */
+}
+
+.login-container form {
+    display: flex; /* Utiliza flexbox para o formulário */
+    flex-direction: column; /* Direção das colunas */
+}
+
+.login-container form button {
+    align-self: center; /* Centraliza o botão de login */
+}
+
+.login-form {
+    display: flex; /* Utiliza flexbox para o formulário */
+    flex-direction: column; /* Direção das colunas */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaçamento entre os grupos de formulários */
+}
+
+.form-group label {
+    display: block; /* Faz com que o rótulo ocupe toda a largura do contêiner pai */
+    margin-bottom: 5px; /* Espaçamento abaixo do rótulo */
+    font-weight: bold; /* Deixa o rótulo em negrito */
+}
+
+.form-group input {
+    width: 100%; /* Faz o input ocupar toda a largura do contêiner pai */
+    padding: 8px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* styles.css */
+
+.register-container {
+    max-width: 400px; /* Largura máxima da div */
+    margin: 50px auto; /* Centraliza a div horizontalmente e adiciona margem superior/inferior */
+    padding: 20px; /* Espaçamento interno */
+    background: #f4f4f4; /* Cor de fundo da div */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar um efeito de elevação */
+}
+
+.register-container h2 {
+    text-align: center; /* Centraliza o texto do título */
+}
+
+.register-container form {
+    display: flex; /* Utiliza flexbox para o formulário */
+    flex-direction: column; /* Direção das colunas */
+}
+
+.register-container form button {
+    align-self: center; /* Centraliza o botão de registro */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

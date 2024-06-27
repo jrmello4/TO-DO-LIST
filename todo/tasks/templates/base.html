@@ -12,14 +12,25 @@
         <div class="container">
             <h1>Todo App</h1>
             <nav>
-                <a href="`{% url 'login' %}">Login</a>
-                <a href="{% url 'logout' %}">logout</a>
+                {% if user.is_authenticated %}
+                    <form id="logout-form" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-logout">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-login">Login</a>
+                    <a href="{% url 'register' %}" class="btn-register">Register</a>
+                    <a href="{% url 'guest_login' %}" class="btn-guest">Login as Guest</a>
+                {% endif %}
+                
                 <ul>
                     <li><a href="{% url 'index' %}">Home</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    
+    
 
     <main class="container">
         {% block content %}
@@ -28,7 +39,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; {% now "Y" %} Todo App. All rights reserved.</p>
+            <p>&copy; {% now "Y" %} Todo App. Adenilson De Mello Junior.</p>
         </div>
     </footer>
 </body>
